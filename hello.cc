@@ -3,13 +3,13 @@
 using namespace ::std;
 int main() {
     std::cout << "Hello, World!" << std::endl;
-    struct freespace_change {
-	uint32_t tx_freespace_change;
-	uint16_t credit;
+    struct fc {
+	uint32_t x_fc;
+	uint16_t cre;
     };
-    union tsn_freespace {
-	uint64_t commit_tsn;
-	freespace_change freespace;
+    union t_freespace {
+	uint64_t commit_t;
+	fc freespace;
     };
 
     union u1 {
@@ -22,16 +22,16 @@ int main() {
 	uint32_t val2;
     };
 
-    class itl {
-	uint64_t txid;
+    class union_ver {
+	uint64_t xid;
 	uint64_t uea;
-	tsn_freespace union_val;
+	t_freespace union_val;
 	uint8_t flag;
 	uint8_t status; 
     };
 
-    class itl2 {
-	uint64_t txid;
+    class union_ver2 {
+	uint64_t xid;
 	uint64_t uea;
 	u2 union_Val2;
 	u1 union_val1;
@@ -44,19 +44,19 @@ int main() {
 	uint16_t wrap;
     };
 
-    class itl3 {
-	uint64_t txid;
+    class union_ver3 {
+	uint64_t xid;
 	union aaa {
-	    uint64_t tsn;
-	    tsn_freespace union_val;
+	    uint64_t t;
+	    t_freespace union_val;
 	};
 	uea_union_s uea;
 	uint8_t flag;
 	uint8_t status; 
     };
 
-    std::cout << sizeof(itl) << std::endl;
-    std::cout << sizeof(itl2) << std::endl;
-    std::cout << sizeof(itl3) << std::endl;
+    std::cout << sizeof(union_ver) << std::endl;
+    std::cout << sizeof(union_ver2) << std::endl;
+    std::cout << sizeof(union_ver3) << std::endl;
     return 0;
 }
